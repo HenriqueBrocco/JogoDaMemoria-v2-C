@@ -22,6 +22,7 @@ void texto_em_fala(string Texto) //Função para converter texto em fala
     cout << Texto + "\n"; //Escreve o texto
     requisicao_textofala->SpeakTextAsync(Texto).get(); //Requisição da sintetização de texto em fala
 }//Função para converter texto em fala
+
 string fala_em_texto() {
     auto resultado = requisicao_falatexto->RecognizeOnceAsync().get(); //Requisição do reconhecimento de fala em texto
     cout << resultado->Text + "\n"; //Escreve o texto
@@ -170,7 +171,7 @@ int main()
     for (int i = 0; i < 16; i++) //Coloca todos os valores do vetor Acertos com -1
         Acertos[i] = -1; //Atribui o valor com -1
 
-    texto_em_fala("\n\t\t\tDiferenca de 8\n\n \tBem-vindo ao Diferenca de 8 por voz, as regras sao as seguintes:\n \tO jogo possui 16 casas, voce deve encontrar os numeros que tem uma diferenca modular de 8 entre si.\nPor rodada tem-se uma chance de acertar, caso acerte, as casas ficarao aparecendo ate o final da sua partida.\nOs pares sao: 0-8 1-9 2-10 3-11 4-12 5-13 6-14 7-15\n Caso queira sair, basta dizer Sair duas vezes.\nSeu objetivo e acertar todos\n\tBoa sorte e bom jogo!!!\n\n"); //Explica as regras
+    //texto_em_fala("\n\t\t\tDiferenca de 8\n\n \tBem-vindo ao Diferenca de 8 por voz, as regras sao as seguintes:\n \tO jogo possui 16 casas, voce deve encontrar os numeros que tem uma diferenca modular de 8 entre si.\nPor rodada tem-se uma chance de acertar, caso acerte, as casas ficarao aparecendo ate o final da sua partida.\nOs pares sao: 0-8 1-9 2-10 3-11 4-12 5-13 6-14 7-15\n Caso queira sair, basta dizer Sair duas vezes.\nSeu objetivo e acertar todos\n\tBoa sorte e bom jogo!!!\n\n"); //Explica as regras
 
     Tabuleiro primeiro; //Cria a variavel primeiro do tipo tabuleiro
     srand(time(NULL)); //Configura a função rand com o time para gerar números "aleatórios"
@@ -191,11 +192,11 @@ int main()
     {
         for (int play = 0; play < 2; play++) //Criação do loop para controlar as jogadas por rodada
         {
-            texto_em_fala("Qual lugar deseja virar?"); //Faz a mensagem entre aspas ser falada (Para jogar por voz)
-            //cout << "\nQual lugar deseja virar?\n"; //Variação da mensagem para caso queira jogar na mão (Para jogar manualmente)
-            //string jogada; //Cria a variavel jogada sendo uma string (Para jogar manualmente)
-            //cin >> jogada; //Pega o valor digitado pelo usuario para poder ser o valor a ser revelado no tabuleiro (Para jogar manualmente)
-            string jogada = fala_em_texto(); //Capta a mensagem falada, a transformando em texto e atribuindo ao valor da string jogada (Para jogar por voz)
+            //texto_em_fala("Qual lugar deseja virar?"); //Faz a mensagem entre aspas ser falada (Para jogar por voz)
+            cout << "\nQual lugar deseja virar?\n"; //Variação da mensagem para caso queira jogar na mão (Para jogar manualmente)
+            string jogada; //Cria a variavel jogada sendo uma string (Para jogar manualmente)
+            cin >> jogada; //Pega o valor digitado pelo usuario para poder ser o valor a ser revelado no tabuleiro (Para jogar manualmente)
+            //string jogada = fala_em_texto(); //Capta a mensagem falada, a transformando em texto e atribuindo ao valor da string jogada (Para jogar por voz)
             int posicao = Jogadas(jogada); //Atribui o valor posição com o retorno da função jogadas (tras a variavél posição para poder ser revelada no tabuleiro)
             MostrarTabuleiro(posicao, primeiro, play); //Atualiza o tabuleiro com a posição escolhida sendo revelada
         }
