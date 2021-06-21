@@ -10,7 +10,7 @@ using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Audio;//Definição dos namespace
 
-auto autenticacao = SpeechConfig::FromSubscription("b342362136af4a70863d908ba46047e2", "brazilsouth"); //Declaração da autenticação do recurso
+auto autenticacao = SpeechConfig::FromSubscription("71555746211545039bf628e34df766aa", "brazilsouth"); //Declaração da autenticação do recurso
 auto requisicao_textofala = SpeechSynthesizer::FromConfig(autenticacao); //Declaração do objeto de requisição de texto em fala do recurso
 auto audio_config = AudioConfig::FromDefaultMicrophoneInput(); //Declaração da entrada do microfone
 auto requisicao_falatexto = SpeechRecognizer::FromConfig(autenticacao, audio_config); //Declaração do objeto de requesição de fala em texto do recurso
@@ -165,20 +165,18 @@ int ConfereVitoria(Tabuleiro acertos)
     }
 }
 
-
-
 void main()
 {
     int vitoria = 0, play=-1, sair = 0;
 
-    autenticacao = SpeechConfig::FromSubscription("b342362136af4a70863d908ba46047e2", "brazilsouth"); //Autenticação do recurso com a cheve e região informados pelo usuário 
+    autenticacao = SpeechConfig::FromSubscription("71555746211545039bf628e34df766aa", "brazilsouth"); //Autenticação do recurso com a cheve e região informados pelo usuário 
     autenticacao->SetSpeechRecognitionLanguage("pt-BR"); //Configuração da autenticação para o reconhecimento de fala em português 
     autenticacao->SetSpeechSynthesisLanguage("pt-BR"); //Configuração da autenticação para a sintetização de fala em português 
     autenticacao->SetSpeechSynthesisVoiceName("pt-BR-HeloisaRUS"); //PT-BR-Heloisa  //Configuração da autenticação com uma voz específica 
     requisicao_textofala = SpeechSynthesizer::FromConfig(autenticacao); //Redefinição do objeto requisição_texto fala com as novas configurações 
     requisicao_falatexto = SpeechRecognizer::FromConfig(autenticacao, audio_config); //Redefinição do objeto requisição_fala texti com as novas configurações
 
-    //texto_em_fala("\n\t\t\tDiferenca de 8\n\n \tBem-vindo ao Diferenca de 8 por voz, as regras sao as seguintes:\n \tO jogo possui 16 casas, voce deve encontrar os numeros que tem uma diferenca modular de 8 entre si.\nPor rodada tem-se uma chance de acertar, caso acerte, as casas ficarao aparecendo ate o final da sua partida.\nOs pares sao: 0-8 1-9 2-10 3-11 4-12 5-13 6-14 7-15\n Caso queira sair, basta dizer Sair duas vezes.\nSeu objetivo e acertar todos\n\tBoa sorte e bom jogo!!!\n\n"); //Explica as regras
+    texto_em_fala("\n\t\t\tDiferenca de 8\n\n \tBem-vindo ao Diferenca de 8 por voz, as regras sao as seguintes:\n \tO jogo possui 16 casas, voce deve encontrar os numeros que tem uma diferenca modular de 8 entre si.\nPor rodada tem-se uma chance de acertar, caso acerte, as casas ficarao aparecendo ate o final da sua partida.\nOs pares sao: 0-8 1-9 2-10 3-11 4-12 5-13 6-14 7-15\n Caso queira sair, basta dizer Sair duas vezes.\nSeu objetivo e acertar todos\n\tBoa sorte e bom jogo!!!\n\n"); //Explica as regras
 
     Tabuleiro primeiro; //Cria a variavel primeiro do tipo tabuleiro
 
@@ -208,11 +206,11 @@ void main()
     {
         for (int play = 0; play < 2; play++) //Criação do loop para controlar as jogadas por rodada
         {
-            //texto_em_fala("Qual lugar deseja virar?"); //Faz a mensagem entre aspas ser falada (Para jogar por voz)
-            cout << "\nQual lugar deseja virar?\n"; //Variação da mensagem para caso queira jogar na mão (Para jogar manualmente)
-            string jogada; //Cria a variavel jogada sendo uma string (Para jogar manualmente)
-            cin >> jogada; //Pega o valor digitado pelo usuario para poder ser o valor a ser revelado no tabuleiro (Para jogar manualmente)
-            //string jogada = fala_em_texto(); //Capta a mensagem falada, a transformando em texto e atribuindo ao valor da string jogada (Para jogar por voz)
+            texto_em_fala("Qual lugar deseja virar?"); //Faz a mensagem entre aspas ser falada (Para jogar por voz)
+            //cout << "\nQual lugar deseja virar?\n"; //Variação da mensagem para caso queira jogar na mão (Para jogar manualmente)
+            //string jogada; //Cria a variavel jogada sendo uma string (Para jogar manualmente)
+            //cin >> jogada; //Pega o valor digitado pelo usuario para poder ser o valor a ser revelado no tabuleiro (Para jogar manualmente)
+            string jogada = fala_em_texto(); //Capta a mensagem falada, a transformando em texto e atribuindo ao valor da string jogada (Para jogar por voz)
             int posicao = Jogadas(jogada); //Atribui o valor posição com o retorno da função jogadas (tras a variavél posição para poder ser revelada no tabuleiro)
             if (posicao > -1)
                 MostrarTabuleiro(posicao, primeiro, play, acertos); //Atualiza o tabuleiro com a posição escolhida sendo revelada
