@@ -165,7 +165,7 @@ int ConfereVitoria()
 
 void main()
 {
-    int vitoria = 0, play=-1, sair = 0;
+    int vitoria = 0, play = -1, sair = 0;
 
     autenticacao = SpeechConfig::FromSubscription("71555746211545039bf628e34df766aa", "brazilsouth"); //Autenticação do recurso com a cheve e região informados pelo usuário 
     autenticacao->SetSpeechRecognitionLanguage("pt-BR"); //Configuração da autenticação para o reconhecimento de fala em português 
@@ -174,7 +174,7 @@ void main()
     requisicao_textofala = SpeechSynthesizer::FromConfig(autenticacao); //Redefinição do objeto requisição_texto fala com as novas configurações 
     requisicao_falatexto = SpeechRecognizer::FromConfig(autenticacao, audio_config); //Redefinição do objeto requisição_fala texti com as novas configurações
 
-texto_em_fala("\n\t\t\tDiferenca de 8\n\n \tBem-vindo ao Jogo da Memoria por voz, as regras sao as seguintes:\n \tO jogo possui 16 casas com numeros, voce deve encontrar os numeros que são iguais.\nPor rodada tem-se uma chance de acertar, caso acerte, as casas ficarao visiveis ate o final da sua partida.\nOs pares sao de numero de 1 a 8\n Caso queira sair, basta dizer Sair duas vezes.\nSeu objetivo e encontrar todos os pares\n\tBoa sorte e bom jogo!!!\n\n"); //Explica as regras
+    texto_em_fala("\n\t\t\tJogo da Memoria\n\n \tBem-vindo ao Jogo da Memoria por voz, as regras sao as seguintes:\n \tO jogo possui 16 casas com numeros, voce deve encontrar os numeros que sao iguais.\nPor rodada tem-se uma chance de acertar, caso acerte, as casas ficarao visiveis ate o final da sua partida.\nOs pares sao de numero de 1 a 8\n Caso queira sair, basta dizer Sair duas vezes.\nSeu objetivo e encontrar todos os pares\n\tBoa sorte e bom jogo!!!\n\n"); //Explica as regras
 
     Tabuleiro primeiro; //Cria a variavel primeiro do tipo tabuleiro
 
@@ -192,7 +192,7 @@ texto_em_fala("\n\t\t\tDiferenca de 8\n\n \tBem-vindo ao Jogo da Memoria por voz
             {
                 for (int k = 0; k < j; k++) //Repetição para conferir se caso já exista duas posições com o mesmo valor, não deixar ocorrer uma terceira
                 {
-                    if(primeiro.Posicoes[k] == primeiro.Posicoes[j])
+                    if (primeiro.Posicoes[k] == primeiro.Posicoes[j])
                         i--; //Caso o valor seja igual ele volta o valor do i para poder tentar acertar um novamente
                 }
             }
@@ -211,7 +211,7 @@ texto_em_fala("\n\t\t\tDiferenca de 8\n\n \tBem-vindo ao Jogo da Memoria por voz
             string jogada = fala_em_texto(); //Capta a mensagem falada, a transformando em texto e atribuindo ao valor da string jogada (Para jogar por voz)
             int posicao = Jogadas(jogada); //Atribui o valor posição com o retorno da função jogadas (tras a variavél posição para poder ser revelada no tabuleiro)
             if (posicao > -1) //Se a posição indicada for valida, atualiza o tabuleiro com a posição escolhida sendo revelada
-                MostrarTabuleiro(posicao, primeiro, play); 
+                MostrarTabuleiro(posicao, primeiro, play);
             else if (posicao == -1) //Se a posição indicada for sair, atualiza a jogada para sair imediatamente do for e do while
             {
                 play = 2;
