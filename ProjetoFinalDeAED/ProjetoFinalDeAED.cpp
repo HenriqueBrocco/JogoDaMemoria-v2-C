@@ -69,67 +69,67 @@ int Jogadas(string a) //Função para realizar as jogadas
 {
     int posicao = -1; //Declara a variavel posição para auxiliar na hora de mostrar o tabuleiro, iniciada com -1 para evitar conflitos
     string jogada = a; //Iguala a variavel "a" para a "jogada"
-    if (jogada == ("1.") || ("Um.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 0 do vetor
+    if (jogada == ("1.") || jogada == ("Um.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 0 do vetor
     {
         posicao = 0; //Atribui o valor a variável posição
     }
-    else if (jogada == ("2.") || ("Dois.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 1 do vetor
+    else if (jogada == ("2.") || jogada == ("Dois.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 1 do vetor
     {
         posicao = 1; //Atribui o valor a variável posição
     }
-    else if (jogada == ("3.") || ("Três.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 2 do vetor
+    else if (jogada == ("3.") || jogada == ("Três.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 2 do vetor
     {
         posicao = 2; //Atribui o valor a variável posição
     }
-    else if (jogada == ("4.") || ("Quatro.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 3 do vetor
+    else if (jogada == ("4.") || jogada == ("Quatro.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 3 do vetor
     {
         posicao = 3; //Atribui o valor a variável posição
     }
-    else if (jogada == ("5.") || ("Cinco.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 4 do vetor
+    else if (jogada == ("5.") || jogada == ("Cinco.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 4 do vetor
     {
         posicao = 4; //Atribui o valor a variável posição
     }
-    else if (jogada == ("6.") || ("Seis.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 5 do vetor
+    else if (jogada == ("6.") || jogada == ("Seis.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 5 do vetor
     {
         posicao = 5; //Atribui o valor a variável posição
     }
-    else if (jogada == ("7.") || ("Sete.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 6 do vetor
+    else if (jogada == ("7.") || jogada == ("Sete.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 6 do vetor
     {
         posicao = 6; //Atribui o valor a variável posição
     }
-    else if (jogada == ("8.") || ("Oito.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 7 do vetor
+    else if (jogada == ("8.") || jogada == ("Oito.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 7 do vetor
     {
         posicao = 7; //Atribui o valor a variável posição
     }
-    else if (jogada == ("9.") || ("Nove.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 8 do vetor
+    else if (jogada == ("9.") || jogada == ("Nove.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 8 do vetor
     {
         posicao = 8; //Atribui o valor a variável posição
     }
-    else if (jogada == ("10.") || ("Dez.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 9 do vetor
+    else if (jogada == ("10.") || jogada == ("Dez.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 9 do vetor
     {
         posicao = 9; //Atribui o valor a variável posição
     }
-    else if (jogada == ("11.") || ("Onze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 10 do vetor
+    else if (jogada == ("11.") || jogada == ("Onze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 10 do vetor
     {
         posicao = 10; //Atribui o valor a variável posição
     }
-    else if (jogada == ("12.") || ("Doze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 11 do vetor
+    else if (jogada == ("12.") || jogada == ("Doze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 11 do vetor
     {
         posicao = 11; //Atribui o valor a variável posição
     }
-    else if (jogada == ("13.") || ("Treze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 12 do vetor
+    else if (jogada == ("13.") || jogada == ("Treze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 12 do vetor
     {
         posicao = 12; //Atribui o valor a variável posição
     }
-    else if (jogada == ("14.") || ("Quatorze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 13 do vetor
+    else if (jogada == ("14.") || jogada == ("Quatorze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 13 do vetor
     {
         posicao = 13; //Atribui o valor a variável posição
     }
-    else if (jogada == ("15.") || ("Quinze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 14 do vetor
+    else if (jogada == ("15.") || jogada == ("Quinze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 14 do vetor
     {
         posicao = 14; //Atribui o valor a variável posição
     }
-    else if (jogada == ("16.") || ("Dezesseis.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 15 do vetor
+    else if (jogada == ("16.") || jogada == ("Dezesseis.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 15 do vetor
     {
         posicao = 15; //Atribui o valor a variável posição
     }
@@ -174,7 +174,7 @@ void main()
     requisicao_textofala = SpeechSynthesizer::FromConfig(autenticacao); //Redefinição do objeto requisição_texto fala com as novas configurações 
     requisicao_falatexto = SpeechRecognizer::FromConfig(autenticacao, audio_config); //Redefinição do objeto requisição_fala texti com as novas configurações
 
-    texto_em_fala("\n\t\t\tJogo da Memoria\n\n \tBem-vindo ao Jogo da Memoria por voz, as regras sao as seguintes:\n \tO jogo possui 16 casas com numeros, voce deve encontrar os numeros que sao iguais.\nPor rodada tem-se uma chance de acertar, caso acerte, as casas ficarao visiveis ate o final da sua partida.\nOs pares sao de numero de 1 a 8\n Caso queira sair, basta dizer Sair duas vezes.\nSeu objetivo e encontrar todos os pares\n\tBoa sorte e bom jogo!!!\n\n"); //Explica as regras
+    //texto_em_fala("\n\t\t\tJogo da Memoria\n\n \tBem-vindo ao Jogo da Memoria por voz, as regras sao as seguintes:\n \tO jogo possui 16 casas com numeros, voce deve encontrar os numeros que sao iguais.\nPor rodada tem-se uma chance de acertar, caso acerte, as casas ficarao visiveis ate o final da sua partida.\nOs pares sao de numero de 1 a 8\n Caso queira sair, basta dizer Sair duas vezes.\nSeu objetivo e encontrar todos os pares\n\tBoa sorte e bom jogo!!!\n\n"); //Explica as regras
 
     Tabuleiro primeiro; //Cria a variavel primeiro do tipo tabuleiro
 
