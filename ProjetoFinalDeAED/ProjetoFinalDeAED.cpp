@@ -69,67 +69,67 @@ int Jogadas(string a) //Função para realizar as jogadas
 {
     int posicao = -1; //Declara a variavel posição para auxiliar na hora de mostrar o tabuleiro, iniciada com -1 para evitar conflitos
     string jogada = a; //Iguala a variavel "a" para a "jogada"
-    if (jogada == ("1.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 0 do vetor
+    if (jogada == ("1.") || ("Um.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 0 do vetor
     {
         posicao = 0; //Atribui o valor a variável posição
     }
-    else if (jogada == ("2.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 1 do vetor
+    else if (jogada == ("2.") || ("Dois.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 1 do vetor
     {
         posicao = 1; //Atribui o valor a variável posição
     }
-    else if (jogada == ("3.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 2 do vetor
+    else if (jogada == ("3.") || ("Três.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 2 do vetor
     {
         posicao = 2; //Atribui o valor a variável posição
     }
-    else if (jogada == ("4.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 3 do vetor
+    else if (jogada == ("4.") || ("Quatro.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 3 do vetor
     {
         posicao = 3; //Atribui o valor a variável posição
     }
-    else if (jogada == ("5.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 4 do vetor
+    else if (jogada == ("5.") || ("Cinco.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 4 do vetor
     {
         posicao = 4; //Atribui o valor a variável posição
     }
-    else if (jogada == ("6.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 5 do vetor
+    else if (jogada == ("6.") || ("Seis.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 5 do vetor
     {
         posicao = 5; //Atribui o valor a variável posição
     }
-    else if (jogada == ("7.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 6 do vetor
+    else if (jogada == ("7.") || ("Sete.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 6 do vetor
     {
         posicao = 6; //Atribui o valor a variável posição
     }
-    else if (jogada == ("8.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 7 do vetor
+    else if (jogada == ("8.") || ("Oito.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 7 do vetor
     {
         posicao = 7; //Atribui o valor a variável posição
     }
-    else if (jogada == ("9.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 8 do vetor
+    else if (jogada == ("9.") || ("Nove.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 8 do vetor
     {
         posicao = 8; //Atribui o valor a variável posição
     }
-    else if (jogada == ("10.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 9 do vetor
+    else if (jogada == ("10.") || ("Dez.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 9 do vetor
     {
         posicao = 9; //Atribui o valor a variável posição
     }
-    else if (jogada == ("11.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 10 do vetor
+    else if (jogada == ("11.") || ("Onze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 10 do vetor
     {
         posicao = 10; //Atribui o valor a variável posição
     }
-    else if (jogada == ("12.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 11 do vetor
+    else if (jogada == ("12.") || ("Doze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 11 do vetor
     {
         posicao = 11; //Atribui o valor a variável posição
     }
-    else if (jogada == ("13.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 12 do vetor
+    else if (jogada == ("13.") || ("Treze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 12 do vetor
     {
         posicao = 12; //Atribui o valor a variável posição
     }
-    else if (jogada == ("14.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 13 do vetor
+    else if (jogada == ("14.") || ("Quatorze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 13 do vetor
     {
         posicao = 13; //Atribui o valor a variável posição
     }
-    else if (jogada == ("15.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 14 do vetor
+    else if (jogada == ("15.") || ("Quinze.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 14 do vetor
     {
         posicao = 14; //Atribui o valor a variável posição
     }
-    else if (jogada == ("16.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 15 do vetor
+    else if (jogada == ("16.") || ("Dezesseis.")) //Caso o jogador tenha falado este número irá atualizar o valor da variavel posição para poder revelar a posição 15 do vetor
     {
         posicao = 15; //Atribui o valor a variável posição
     }
