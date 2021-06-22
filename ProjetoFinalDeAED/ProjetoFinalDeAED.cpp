@@ -15,7 +15,7 @@ auto requisicao_textofala = SpeechSynthesizer::FromConfig(autenticacao); //Decla
 auto audio_config = AudioConfig::FromDefaultMicrophoneInput(); //Declaração da entrada do microfone
 auto requisicao_falatexto = SpeechRecognizer::FromConfig(autenticacao, audio_config); //Declaração do objeto de requesição de fala em texto do recurso
 
-int aux = -1; //Variaveis globais
+int aux = -1, acertos[16]; //Variaveis globais
 
 void texto_em_fala(string Texto) //Função para converter texto em fala
 {
@@ -34,9 +34,7 @@ typedef struct
     int Posicoes[16]; //Cria um vetor com 16 posições
 }Tabuleiro; //Criação do vetor do tabuleiro
 
-Tabuleiro acertos;
-
-void MostrarTabuleiro(int b, Tabuleiro primeiro, int play, Tabuleiro acertos) //Função para desenhar o tabuleiro e atulizar quando necessário
+void MostrarTabuleiro(int b, Tabuleiro primeiro, int play) //Função para desenhar o tabuleiro e atulizar quando necessário
 {
     if (play == 0) //Condição para podermos ver as 2 jogadas feitas por rodada
     {
@@ -50,7 +48,7 @@ void MostrarTabuleiro(int b, Tabuleiro primeiro, int play, Tabuleiro acertos) //
         }
         else //Garante que onde não tenha a joga atualize o mapa corretamente
         {
-            if (acertos.Posicoes[i] == -1) //Atualiza com os campos ainda não selecionados
+            if (acertos[i] == -1) //Atualiza com os campos ainda não selecionados
                 cout << '\t' << "|_________|"; //Desenha o campo vazio
             else //Atualiza os campos que já foram acertados para manter o histórico
                 cout << '\t' << "|    " << primeiro.Posicoes[i] << "    |"; //Desenha os campos acertados
@@ -62,8 +60,8 @@ void MostrarTabuleiro(int b, Tabuleiro primeiro, int play, Tabuleiro acertos) //
     }
     if (primeiro.Posicoes[b] == primeiro.Posicoes[aux] && primeiro.Posicoes[b] != -1 && primeiro.Posicoes[aux] != -1 && play == 1) //Verifica se o par selecionado é correto
     {
-        acertos.Posicoes[b] = primeiro.Posicoes[b]; //Agrega o valor acertado e a posição ao vetor acertado, alterando o valor de -1
-        acertos.Posicoes[aux] = primeiro.Posicoes[aux]; //Agrega o valor acertado e aposição ao vetor acertado, alterando o valor de -1
+        acertos[b] = primeiro.Posicoes[b]; //Agrega o valor acertado e a posição ao vetor acertado, alterando o valor de -1
+        acertos[aux] = primeiro.Posicoes[aux]; //Agrega o valor acertado e aposição ao vetor acertado, alterando o valor de -1
     }
 }
 
@@ -142,18 +140,18 @@ int Jogadas(string a) //Função para realizar as jogadas
     else
     {
         texto_em_fala("Nao entendi, poderia repetir"); //Fala que não entendeu a frase dita
-        posicao = -2;
+        posicao = -2; //Atribui o valor -2 a variável posicao para o jogador poder repetir a jogada
     }
 
     return posicao; //Retorna o valor da variação posição para ela poder ser demonstrada no tabuleiro
 }
 
-int ConfereVitoria(Tabuleiro acertos)
+int ConfereVitoria()
 {
     int vic = 0; //Variavel auxiliar que verifica quantos -1 o vetor Acertos ainda tem, ou seja quantos acertos faltam
     for (int i = 0; i < 16; i++) //Função para permitir a verificação de todo o vetor que estiver diferente de -1 com isso permite a contagem de acertos
     {
-        if (acertos.Posicoes[i] != -1) //Verifica se aquela posição já foi verificada
+        if (acertos[i] != -1) //Verifica se aquela posição já foi verificada
             vic = vic + 1; //Faz a soma para ver se todos os campos já foram acertados
     }
     if (vic == 16) //Verifica se todos os campos já foram preenchidos
@@ -161,7 +159,7 @@ int ConfereVitoria(Tabuleiro acertos)
     else //Em caso de não ter ganhado ainda mostra quantos pares faltam
     {
         cout << "\nVoce fez " << vic << " acertos\n"; //Diz quantos acertos faltam
-        return 0;
+        return 0; //Mantem o valor da vitoria, para sair do while 
     }
 }
 
@@ -181,7 +179,7 @@ void main()
     Tabuleiro primeiro; //Cria a variavel primeiro do tipo tabuleiro
 
     for (int i = 0; i < 16; i++) //Coloca todos os valores do vetor Acertos com -1
-        acertos.Posicoes[i] = -1; //Atribui o valor com -1
+        acertos[i] = -1; //Atribui o valor com -1
 
     srand(time(NULL)); //Configura a função rand com o time para gerar números "aleatórios"
 
@@ -192,7 +190,7 @@ void main()
         {
             if (primeiro.Posicoes[j] == primeiro.Posicoes[i]) //Função para impedir que em duas posições diferentes tenha o mesmo valor
             {
-                for (int k = 0; k < j; k++)
+                for (int k = 0; k < j; k++) //Repetição para conferir se caso já exista duas posições com o mesmo valor, não deixar ocorrer uma terceira
                 {
                     if(primeiro.Posicoes[k] == primeiro.Posicoes[j])
                         i--; //Caso o valor seja igual ele volta o valor do i para poder tentar acertar um novamente
@@ -201,7 +199,7 @@ void main()
         }
     }
 
-    MostrarTabuleiro(-1, primeiro, play, acertos); //Puxa a função de Mostrar o tabuleiro, para mostrar ele todo zerado, envia os valores de -1 que seria o da primeira jogada, o vetor com o resultado e o valor de play, para poder ser contabilizada as jogadas por rodada
+    MostrarTabuleiro(-1, primeiro, play); //Puxa a função de Mostrar o tabuleiro, para mostrar ele todo zerado, envia os valores de -1 que seria o da primeira jogada, o vetor com o resultado e o valor de play, para poder ser contabilizada as jogadas por rodada
     while (vitoria == 0 && sair == 0) //Cria um looping de jogo até a pessoa querer sair ou ganhar o jogo
     {
         for (int play = 0; play < 2; play++) //Criação do loop para controlar as jogadas por rodada
@@ -212,17 +210,17 @@ void main()
             //cin >> jogada; //Pega o valor digitado pelo usuario para poder ser o valor a ser revelado no tabuleiro (Para jogar manualmente)
             string jogada = fala_em_texto(); //Capta a mensagem falada, a transformando em texto e atribuindo ao valor da string jogada (Para jogar por voz)
             int posicao = Jogadas(jogada); //Atribui o valor posição com o retorno da função jogadas (tras a variavél posição para poder ser revelada no tabuleiro)
-            if (posicao > -1)
-                MostrarTabuleiro(posicao, primeiro, play, acertos); //Atualiza o tabuleiro com a posição escolhida sendo revelada
-            else if (posicao == -1)
+            if (posicao > -1) //Se a posição indicada for valida, atualiza o tabuleiro com a posição escolhida sendo revelada
+                MostrarTabuleiro(posicao, primeiro, play); 
+            else if (posicao == -1) //Se a posição indicada for sair, atualiza a jogada para sair imediatamente do for e do while
             {
                 play = 2;
                 sair = 1;
             }
-            else if (posicao == -2)
+            else if (posicao == -2) //Se a posição indicar for retornada com -2, quer dizer que não foi identificada a jogada, então ele retorna play para o valor anterior para repetir a jogada
                 play--;
         }
-        vitoria = ConfereVitoria(acertos); //Chama a função checar vitoria apos cada rodada jogada
+        vitoria = ConfereVitoria(); //Chama a função checar vitoria apos cada rodada jogada
     }
 
     if (sair == 1) //Caso o usuario tenha escolhido sair, irá ter alterado a variavel sair, fazendo com que saia do loop do while e caia nessa condição encerrando o jogo
