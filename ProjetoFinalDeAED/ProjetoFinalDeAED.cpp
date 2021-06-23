@@ -174,7 +174,7 @@ void main()
     requisicao_textofala = SpeechSynthesizer::FromConfig(autenticacao); //Redefinição do objeto requisição_texto fala com as novas configurações 
     requisicao_falatexto = SpeechRecognizer::FromConfig(autenticacao, audio_config); //Redefinição do objeto requisição_fala texti com as novas configurações
 
-    //texto_em_fala("\n\t\t\tJogo da Memoria\n\n \tBem-vindo ao Jogo da Memoria por voz, as regras sao as seguintes:\n \tO jogo possui 16 casas com numeros, voce deve encontrar os numeros que sao iguais.\nPor rodada tem-se uma chance de acertar, caso acerte, as casas ficarao visiveis ate o final da sua partida.\nOs pares sao de numero de 1 a 8\n Caso queira sair, basta dizer Sair duas vezes.\nSeu objetivo e encontrar todos os pares\n\tBoa sorte e bom jogo!!!\n\n"); //Explica as regras
+    texto_em_fala("\n\t\t\tJogo da Memoria\n\n \tBem-vindo ao Jogo da Memoria por voz, as regras sao as seguintes:\n \tO jogo possui 16 casas com numeros, voce deve encontrar os numeros que sao iguais.\nPor rodada tem-se uma chance de acertar, caso acerte, as casas ficarao visiveis ate o final da sua partida.\nOs pares sao de numero de 1 a 8\n Caso queira sair, basta dizer Sair duas vezes.\nSeu objetivo e encontrar todos os pares\n\tBoa sorte e bom jogo!!!\n\n"); //Explica as regras
 
     Tabuleiro primeiro; //Cria a variavel primeiro do tipo tabuleiro
 
